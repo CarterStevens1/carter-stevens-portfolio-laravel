@@ -1,0 +1,20 @@
+@theme {
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 600px;
+    --breakpoint-md: 767px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1600px;
+
+    --default-font-family: 'Poppins', 'museo-sans-rounded', 'Lucida Grande', 'sans-serif';
+    --default-mono-font-family: 'Poppins', 'museo-sans-rounded', 'Lucida Grande', 'sans-serif';
+    --font-sans: 'Poppins', 'museo-sans-rounded', 'Lucida Grande', 'sans-serif';
+    --font-display: 'Poppins', 'museo-sans-rounded', 'Lucida Grande', 'sans-serif';
+    --font-body: 'Poppins', 'museo-sans-rounded', 'Lucida Grande', 'sans-serif';
+    --fontAwesomeSolid: 'var(--fa-font-solid)';
+
+    --color-darkPurple: #0f172a;
+    --color-darkPurple-500: #0f172a;
+    --color-darkPurple-600: #1e2945;
+    --color-lightGrey: #b9b9b9;
+    --color-violet: #5b53d5;
+}
