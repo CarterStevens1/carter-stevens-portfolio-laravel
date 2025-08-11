@@ -20,7 +20,7 @@
         @endif
     </head>
 
-    <body class="bg-darkPurple flex min-h-screen flex-col px-6 py-12 text-white lg:px-8">
+    <body class="bg-darkPurple {{ $class ?? '' }} flex min-h-screen px-6 py-12 text-white lg:px-8">
         {{ $slot }}
     </body>
 </html>

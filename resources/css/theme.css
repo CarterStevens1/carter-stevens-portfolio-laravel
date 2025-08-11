@@ -1,10 +1,4 @@
 @theme {
-    --breakpoint-xs: 480px;
-    --breakpoint-sm: 600px;
-    --breakpoint-md: 767px;
-    --breakpoint-lg: 1024px;
-    --breakpoint-xl: 1600px;
-
     --default-font-family: 'Azeret Mono', 'museo-sans-rounded', 'Lucida Grande', 'sans-serif';
     --default-mono-font-family: 'Azeret Mono', 'museo-sans-rounded', 'Lucida Grande', 'sans-serif';
     --font-sans: 'Azeret Mono', 'museo-sans-rounded', 'Lucida Grande', 'sans-serif';
