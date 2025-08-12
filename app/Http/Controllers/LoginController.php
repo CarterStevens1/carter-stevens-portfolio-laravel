@@ -30,22 +30,25 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        $credentials = $request->validate([
-            'login' => ['required', 'string'],
+        $attributes = $request->validate([
+            'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+        // attempt to log the user in
+        Auth::attempt($attributes);
 
-
-        if (Auth::attempt($credentials, $request->boolean('remember'))) {
-            $request->session()->regenerate();;
-            $user = Auth::user();
-
-            return view('carterStevens');
+        // if the user fails log in, redirect them to the login page
+        if (! Auth::attempt($attributes)) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect.'],
+            ]);
         }
 
-        return back()->withErrors([
-            'login' => 'The provided credentials are incorrect.',
-        ])->onlyInput('login');
+        // is the user successfully logged in? regenerate session token.
+        request()->session()->regenerate();
+
+        // redirect
+        return redirect('/dashboard');
     }
 
     /**
