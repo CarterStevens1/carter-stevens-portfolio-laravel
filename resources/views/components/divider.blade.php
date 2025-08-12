@@ -1,1 +1,1 @@
-<div class="bg-white/10 my-2 h-px w-full"></div>
+<div class="my-14 h-px w-full bg-[#CACACC] lg:my-24"></div>
