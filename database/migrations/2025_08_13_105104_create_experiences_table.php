@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->foreignIdFor(User::class)->constrained()->onDelete('cascade');
+            $table->string('website_url')->nullable();
             $table->string('job_title')->required();
             $table->string('company')->nullable();
             $table->string('start_date')->nullable();

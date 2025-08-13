@@ -26,6 +26,7 @@ class ExperienceController extends Controller
         $request->merge(['user_id' => Auth::user()->id]);
         $attributes = $request->validate([
             'user_id' => ['required'],
+            'website_url' => ['nullable'],
             'job_title' => ['required'],
             'company' => ['nullable'],
             'start_date' => ['nullable'],
@@ -53,6 +54,7 @@ class ExperienceController extends Controller
     {
         $experiences = Experience::findOrFail($id);
         $attributes = $request->validate([
+            'website_url' => ['nullable'],
             'job_title' => ['required'],
             'company' => ['nullable'],
             'start_date' => ['nullable'],

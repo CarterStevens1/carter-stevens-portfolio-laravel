@@ -1,5 +1,6 @@
 <x-layout>
     <x-forms.form method="POST" action="/add-experience" enctype="multipart/form-data">
+        <x-forms.input name="website_url" label="Website URL" value="{{ old('website_url') }}" />
         <x-forms.input name="job_title" label="Job Title *" value="{{ old('job_title') }}" required />
         <x-forms.input name="company" label="Company" value="{{ old('company') }}" />
         <x-forms.input name="start_date" label="Start Date" value="{{ old('start_date') }}" />
