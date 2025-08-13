@@ -27,13 +27,13 @@
                     <h3 class="mb-4 text-lg font-semibold text-slate-200">Reading List (TODO)</h3>
                     <div class="space-y-3">
                         <a
-                            {{-- href="{{ route('experience.index') }}" --}}
+                            href="{{ route('project.index') }}"
                             class="block w-full rounded-md bg-teal-600 px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-teal-500"
                         >
                             View Current readings
                         </a>
                         <a
-                            {{-- href="{{ route('experience.create') }}" --}}
+                            href="{{ route('project.create') }}"
                             class="block w-full rounded-md border border-slate-600 px-4 py-2 text-center text-sm font-medium text-slate-200 transition-colors hover:bg-slate-700"
                         >
                             Add New Reading

@@ -1,5 +1,7 @@
 @props([
     'experiences',
+    'notPersonalProjects',
+    'personalProjects',
 ])
 <x-layout>
     <div class="w-full lg:flex lg:justify-between lg:gap-4">
@@ -40,7 +42,7 @@
                 </x-textBlock.text>
             </div>
             <x-experience :experiences="$experiences" />
-            <x-projects />
+            <x-projects :projects="$personalProjects" />
             {{--
                 <x-projects />
                 <x-pastReadings />
