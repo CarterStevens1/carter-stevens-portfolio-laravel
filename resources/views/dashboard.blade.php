@@ -32,7 +32,7 @@
                     <h3 class="mb-4 text-lg font-semibold text-slate-200">Quick Actions</h3>
                     <div class="space-y-3">
                         <a
-                            {{-- href="{{ route('experience.index') }}" --}}
+                            href="{{ route('experience.index') }}"
                             class="block w-full rounded-md bg-teal-600 px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-teal-500"
                         >
                             View Current Experience
@@ -44,7 +44,7 @@
                             Add New Experience
                         </a>
                         <a
-                            {{-- href="{{ route('profile.edit') }}" --}}
+                            href="{{ route('edit') }}"
                             class="block w-full rounded-md border border-slate-600 px-4 py-2 text-center text-sm font-medium text-slate-200 transition-colors hover:bg-slate-700"
                         >
                             Edit Profile

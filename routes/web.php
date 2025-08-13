@@ -25,6 +25,12 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard', [RegisteredUserController::class, 'index'])->name('dashboard');
     Route::get('add-experience', [ExperienceController::class, 'create'])->name('experience.create');
     Route::post('add-experience', [ExperienceController::class, 'store'])->name('experience.create');
+
+    Route::get('view-experience', [ExperienceController::class, 'index'])->name('experience.index');
+
+    Route::get('/experience/{experience}/edit', [ExperienceController::class, 'edit'])->name('experience.edit');
+    Route::post('/experience/{experience}/edit', [ExperienceController::class, 'update'])->name('experience.update');
+    Route::post('/experience/{experience}/delete', [ExperienceController::class, 'destroy'])->name('experience.destroy');
 });
 
 Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');

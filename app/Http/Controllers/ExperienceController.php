@@ -9,7 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class ExperienceController extends Controller
 {
     //
-    public function index() {}
+    public function index()
+    {
+        $experiences = Experience::where('user_id', Auth::user()->id)->latest()->get();
+
+        return view('components.experience.index', compact(['experiences']));
+    }
 
     public function create()
     {
@@ -30,10 +35,26 @@ class ExperienceController extends Controller
         ]);
 
         $experience = Experience::create($attributes);
+
         return redirect()->route('dashboard');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $experiences = Experience::findOrFail($id);
+        // Return view with success message
+        return view('components.experience.edit', compact('experiences'))->with('success', 'Experience updated successfully.');
     }
 
     public function update() {}
 
-    public function destroy() {}
+    public function destroy(string $id)
+    {
+        $experiences = Experience::findOrFail($id);
+        $experiences->delete();
+        return redirect()->route('dashboard');
+    }
 }
