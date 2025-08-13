@@ -3,14 +3,18 @@
 ])
 
 <x-layout>
-    @foreach ($experiences as $experience)
-        <x-cards.experienceCard
-            href="/experience/{{ $experience->id }}/edit"
-            target="_blank"
-            title="{{ $experience->job_title }} - {{ $experience->company }}"
-            tenure="{{ $experience->start_date }} - {{ $experience->end_date }}"
-            description="{{ $experience->description }}"
-            technologies="{{ $experience->skills_used }}"
-        />
-    @endforeach
+    <div class="w-full lg:flex lg:flex-col lg:gap-4">
+        <x-dashboardNav pageName="View experiences" />
+        <main class="flex items-center py-12">
+            @foreach ($experiences as $experience)
+                <x-cards.experienceCard
+                    href="/experience/{{ $experience->id }}/edit"
+                    title="{{ $experience->job_title }} - {{ $experience->company }}"
+                    tenure="{{ $experience->start_date }} - {{ $experience->end_date }}"
+                    description="{{ $experience->description }}"
+                    technologies="{{ $experience->skills_used }}"
+                />
+            @endforeach
+        </main>
+    </div>
 </x-layout>
