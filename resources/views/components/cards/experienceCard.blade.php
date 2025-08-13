@@ -23,7 +23,7 @@
         <ul class="mt-6 flex flex-wrap" aria-label="Technologies used">
             @foreach (explode(',', $technologies) as $technology)
                 <li class="mt-2 mr-1.5">
-                    <x-pill>{{ $technology }}</x-pill>
+                    <x-global.pill>{{ $technology }}</x-pill>
                 </li>
             @endforeach
         </ul>

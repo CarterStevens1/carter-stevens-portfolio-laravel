@@ -13,12 +13,12 @@ class ExperienceController extends Controller
     {
         $experiences = Experience::latest()->get();
 
-        return view('components.experience.index', compact(['experiences']));
+        return view('experience.index', compact(['experiences']));
     }
 
     public function create()
     {
-        return view('components.experience.create');
+        return view('experience.create');
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class ExperienceController extends Controller
     {
         $experiences = Experience::findOrFail($id);
         // Return view with success message
-        return view('components.experience.edit', compact('experiences'))->with('success', 'Experience updated successfully.');
+        return view('experience.edit', compact('experiences'))->with('success', 'Experience updated successfully.');
     }
 
     public function update(Request $request, string $id)

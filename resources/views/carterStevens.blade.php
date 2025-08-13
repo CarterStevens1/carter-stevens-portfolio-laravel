@@ -8,7 +8,7 @@
         </header>
         <main class="flex flex-col items-center py-12 lg:w-[52%]">
             <x-hero.image />
-            <x-divider />
+            <x-global.divider />
             <div>
                 <div
                     class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
@@ -24,7 +24,7 @@
 
                 <x-textBlock.text>
                     Currently, I'm a PHP Developer at
-                    <x-link href="#">Humankind Ventures LTD</x-link>
+                    <x-global.link href="#">Humankind Ventures LTD</x-global.link>
                     , where I manage a house of websites, contributing to the growth of the company by creating and
                     maintaining UI components and design systems. I ensure the platforms meeets web accessibility
                     standars and best practices to make sure each user can easily navigate and interact with the
@@ -32,7 +32,7 @@
                 </x-textBlock.text>
                 <x-textBlock.text>
                     I have some experience with backend work and i'm currently learning more about
-                    <x-link href="#">Laravel</x-link>
+                    <x-global.link href="#">Laravel</x-global.link>
                     which I am using for this portfolio and have been excited to learn more about it.
                 </x-textBlock.text>
                 <x-textBlock.text>

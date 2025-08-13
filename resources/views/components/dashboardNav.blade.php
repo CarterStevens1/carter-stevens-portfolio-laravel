@@ -1,7 +1,7 @@
 <nav class="flex justify-end gap-x-6 py-5">
-    <x-link href="/" class="text-slate-200 hover:text-white">Home</x-link>
-    <x-link href="/dashboard" class="text-slate-200 hover:text-white">Dashboard</x-link>
-    <x-link href="{{ url('/edit') }}" class="text-slate-200 hover:text-white">Edit Profile</x-link>
+    <x-global.link href="/" class="text-slate-200 hover:text-white">Home</x-global.link>
+    <x-global.link href="/dashboard" class="text-slate-200 hover:text-white">Dashboard</x-global.link>
+    <x-global.link href="{{ url('/edit') }}" class="text-slate-200 hover:text-white">Edit Profile</x-global.link>
     <form method="POST" action="/logout">
         @csrf
         @method('POST')
