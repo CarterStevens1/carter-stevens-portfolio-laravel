@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
@@ -18,10 +19,12 @@ Route::post('edit', [RegisteredUserController::class, 'update'])->middleware('au
 Route::post('destroy', [RegisteredUserController::class, 'destroy'])->middleware('auth')->name('destroy');
 
 
+Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
 Route::middleware('auth')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
     Route::get('dashboard', [RegisteredUserController::class, 'index'])->name('dashboard');
+    Route::get('add-experience', [ExperienceController::class, 'create'])->name('experience.create');
+    Route::post('add-experience', [ExperienceController::class, 'store'])->name('experience.create');
 });
 
 Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
