@@ -40,6 +40,11 @@
                 </x-textBlock.text>
             </div>
             <x-experience :experiences="$experiences" />
+            {{--
+                <x-projects />
+                <x-projects />
+                <x-pastReadings />
+            --}}
         </main>
     </div>
 </x-layout>
