@@ -3,10 +3,14 @@
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisteredUserController;
+use App\Models\Experience;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('carterStevens');
+    // Get all experiences
+    $experiences = Experience::latest()->get();
+
+    return view('carterStevens', compact(['experiences']));
 })->name('home');
 
 Route::middleware('guest')->group(function () {

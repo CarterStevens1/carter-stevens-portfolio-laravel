@@ -11,7 +11,7 @@ class ExperienceController extends Controller
     //
     public function index()
     {
-        $experiences = Experience::where('user_id', Auth::user()->id)->latest()->get();
+        $experiences = Experience::latest()->get();
 
         return view('components.experience.index', compact(['experiences']));
     }
@@ -49,7 +49,20 @@ class ExperienceController extends Controller
         return view('components.experience.edit', compact('experiences'))->with('success', 'Experience updated successfully.');
     }
 
-    public function update() {}
+    public function update(Request $request, string $id)
+    {
+        $experiences = Experience::findOrFail($id);
+        $attributes = $request->validate([
+            'job_title' => ['required'],
+            'company' => ['nullable'],
+            'start_date' => ['nullable'],
+            'end_date' => ['nullable'],
+            'description' => ['required'],
+            'skills_used' => ['required'],
+        ]);
+        $experiences->update($attributes);
+        return redirect()->route('dashboard');
+    }
 
     public function destroy(string $id)
     {

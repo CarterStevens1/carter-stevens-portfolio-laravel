@@ -17,7 +17,7 @@
                 <span>{{ $tenure }}</span>
             </div>
             <p class="mt-2 text-sm leading-normal">
-                {{ $description }}
+                {{ html_entity_decode($description, ENT_QUOTES, 'UTF-8') }}
             </p>
         </div>
         <ul class="mt-6 flex flex-wrap" aria-label="Technologies used">

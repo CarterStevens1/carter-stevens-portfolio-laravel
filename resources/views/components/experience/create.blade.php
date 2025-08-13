@@ -4,7 +4,7 @@
         <x-forms.input name="company" label="Company" value="{{ old('company') }}" />
         <x-forms.input name="start_date" label="Start Date" value="{{ old('start_date') }}" />
         <x-forms.input name="end_date" label="End Date" value="{{ old('end_date') }}" />
-        <x-forms.input name="description" label="Description" value="{{ old('description') }}" required />
+        <x-forms.textArea name="description" label="Description" value="{{ old('description') }}" required />
         <x-forms.input name="skills_used" label="Skills Used" value="{{ old('skills_used') }}" required />
 
         <x-forms.divider />

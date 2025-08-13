@@ -1,7 +1,6 @@
 @props([
     'experiences',
 ])
-
 <x-layout>
     <x-forms.form
         id="update"
@@ -13,7 +12,9 @@
         <x-forms.input name="company" label="Company" value="{{ $experiences->company }}" />
         <x-forms.input name="start_date" label="Start Date" value="{{ $experiences->start_date }}" />
         <x-forms.input name="end_date" label="End Date" value="{{ $experiences->end_date }}" />
-        <x-forms.input name="description" label="Description" value="{{ $experiences->description }}" required />
+        <x-forms.textArea name="description" label="Description" required>
+            {{ $experiences->description }}
+        </x-forms.textArea>
         <x-forms.input name="skills_used" label="Skills Used" value="{{ $experiences->skills_used }}" required />
 
         <x-forms.divider />

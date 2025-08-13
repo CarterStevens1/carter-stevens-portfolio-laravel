@@ -1,3 +1,6 @@
+@props([
+    'experiences',
+])
 <x-layout>
     <div class="w-full lg:flex lg:justify-between lg:gap-4">
         <header class="lg:w-[48%]">
@@ -36,7 +39,7 @@
                     In my spare time, you can usually find me, reading, Walking the dog, or playing video games.
                 </x-textBlock.text>
             </div>
-            <x-experience />
+            <x-experience :experiences="$experiences" />
         </main>
     </div>
 </x-layout>
