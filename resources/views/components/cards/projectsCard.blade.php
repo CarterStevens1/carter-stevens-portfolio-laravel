@@ -1,15 +1,4 @@
-@props([
-    'href' => '#',
-    'image' => '',
-    'target' => '_self',
-    'title',
-    'description',
-    'technologies' => '',
-])
-<a href="{{ $href }}" target="{{ $target }}" class="block" aria-label="Projects card">
-    <div
-        class="group hover:bg-darkPurple-600 rounded-2xl transition-all duration-300 ease-in-out hover:outline hover:outline-white p-2 sm:p-5 w-full max-w-[800px]"
-    >
+<x-cards.cardWrapper>
     <div class="flex sm:flex-row flex-col gap-6">
       <div class="sm:w-2/6 max-w-96 max-sm:order-2">
         <img src="{{ asset('images/' . $image) }}" alt="Placeholder image" class="max-h-[200px] object-contain rounded transition sm:translate-y-1"/>      
@@ -30,5 +19,4 @@
           </ul>
       </div>
     </div>
-    </div>
-</a>
+</x-cards.cardWrapper>

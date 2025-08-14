@@ -1,16 +1,5 @@
-@props([
-    'href' => '/',
-    'target' => '_self',
-    'title',
-    'tenure',
-    'description',
-    'technologies' => '',
-])
 
-<a href="{{ $href }}" target="{{ $target }}" class="block" aria-label="Experience card">
-    <div
-        class="group hover:bg-darkPurple-600 rounded-2xl transition-all duration-300 ease-in-out hover:outline hover:outline-white p-2 sm:p-5 w-full max-w-[800px]"
-    >
+<x-cards.cardWrapper>
         <div class="space-y-6 lg:space-y-4">
             <div class="flex sm:items-center flex-col-reverse justify-between sm:flex-row">
                 <h3 class="group-hover:text-violet text-white group-hover:font-bold">{{ $title }}</h3>
@@ -27,5 +16,4 @@
                 </li>
             @endforeach
         </ul>
-    </div>
-</a>
+</x-cards.cardWrapper>
