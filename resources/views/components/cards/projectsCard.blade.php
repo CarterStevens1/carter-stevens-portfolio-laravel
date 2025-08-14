@@ -1,5 +1,5 @@
 @props([
-    'href' => '/',
+    'href' => '#',
     'image' => '',
     'target' => '_self',
     'title',
@@ -12,8 +12,8 @@
     >
     <div class="flex gap-4">
       <div class="w-1/5">
-        <img src="{{ asset('images/forth-product-cards.webp') }}" alt="Placeholder image" class="w-full h-full object-contain">
-      </div>
+        <img src="{{ asset('images/' . $image) }}" alt="Placeholder image" class="w-full h-full object-contain"/>      
+    </div>
       <div class="space-y-6 lg:space-y-4 w-4/5">
           <div class="flex flex-col-reverse justify-between lg:flex-row">
               <h3 class="group-hover:text-violet text-white group-hover:font-bold">{{ $title }}</h3>

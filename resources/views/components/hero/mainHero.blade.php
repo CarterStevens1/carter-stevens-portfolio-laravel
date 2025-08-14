@@ -8,7 +8,14 @@
         <span class="mt-4 text-lg text-slate-200">Front End Developer / PHP Developer</span>
         <p class="mt-4 max-w-xs">I build accessible and unique experiences, making the web a little better everyday!</p>
 
-        <nav class="py-4"></nav>
+        <nav class="nav hidden lg:block" aria-label="In-page jump links">
+            <ul class="mt-16 w-max">
+                <x-hero.navItem href="#about">About</x-hero.navItem>
+                <x-hero.navItem href="#experience">Experience</x-hero.navItem>
+                <x-hero.navItem href="#projects">Projects</x-hero.navItem>
+                <x-hero.navItem href="#otherProjects">Other Projects</x-hero.navItem>
+            </ul>
+        </nav>
     </div>
 
     <div class="py-4">
