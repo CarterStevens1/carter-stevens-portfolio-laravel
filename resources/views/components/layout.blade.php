@@ -26,7 +26,7 @@
         @endif
     </head>
 
-    <body class="bg-darkPurple {{ $class ?? '' }} flex min-h-screen px-6 text-slate-400 lg:px-8">
+    <body class="bg-darkPurple {{ $class ?? '' }} flex min-h-screen overflow-x-hidden px-6 text-slate-400 lg:px-8">
         {{ $slot }}
     </body>
 </html>

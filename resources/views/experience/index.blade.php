@@ -5,7 +5,7 @@
 <x-layout>
     <div class="w-full lg:flex lg:flex-col lg:gap-4">
         <x-dashboardNav pageName="View experiences" />
-        <main class="flex max-w-screen-xl flex-col items-center gap-6 px-12 py-12">
+        <main class="flex max-w-screen-xl flex-col gap-6 px-4 py-12">
             @foreach ($experiences as $experience)
                 <x-cards.experienceCard
                     href="/experience/{{ $experience->id }}/edit"

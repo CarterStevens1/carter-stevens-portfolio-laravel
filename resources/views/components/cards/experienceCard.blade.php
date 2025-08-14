@@ -9,12 +9,12 @@
 
 <a href="{{ $href }}" target="{{ $target }}" class="block" aria-label="Experience card">
     <div
-        class="group hover:bg-darkPurple-600 rounded-2xl transition-all duration-300 ease-in-out hover:outline hover:outline-white lg:p-5"
+        class="group hover:bg-darkPurple-600 rounded-2xl transition-all duration-300 ease-in-out hover:outline hover:outline-white p-2 sm:p-5 w-full max-w-[800px]"
     >
         <div class="space-y-6 lg:space-y-4">
-            <div class="flex flex-col-reverse justify-between lg:flex-row">
+            <div class="flex sm:items-center flex-col-reverse justify-between sm:flex-row">
                 <h3 class="group-hover:text-violet text-white group-hover:font-bold">{{ $title }}</h3>
-                <span>{{ $tenure }}</span>
+                <span class="text-xs max-sm:pb-1">{{ $tenure }}</span>
             </div>
             <p class="mt-2 text-sm leading-normal">
                 {{ html_entity_decode($description, ENT_QUOTES, 'UTF-8') }}

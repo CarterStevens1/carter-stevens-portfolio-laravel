@@ -8,13 +8,13 @@
 ])
 <a href="{{ $href }}" target="{{ $target }}" class="block" aria-label="Projects card">
     <div
-        class="group hover:bg-darkPurple-600 rounded-2xl transition-all duration-300 ease-in-out hover:outline hover:outline-white lg:p-5"
+        class="group hover:bg-darkPurple-600 rounded-2xl transition-all duration-300 ease-in-out hover:outline hover:outline-white p-2 sm:p-5 w-full max-w-[800px]"
     >
     <div class="flex sm:flex-row flex-col gap-6">
-      <div class="sm:w-2/6 max-w-96">
-        <img src="{{ asset('images/' . $image) }}" alt="Placeholder image" class="w-full h-full object-contain"/>      
+      <div class="sm:w-2/6 max-w-96 max-sm:order-2">
+        <img src="{{ asset('images/' . $image) }}" alt="Placeholder image" class="max-h-[200px] object-contain rounded transition sm:translate-y-1"/>      
       </div>
-      <div class="space-y-6 lg:space-y-4 w-4/6">
+      <div class="space-y-6 lg:space-y-4 sm:w-4/6 max-sm:order-1">
           <div class="flex flex-col-reverse justify-between lg:flex-row">
               <h3 class="group-hover:text-violet text-white group-hover:font-bold">{{ $title }}</h3>
           </div>
