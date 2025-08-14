@@ -23,15 +23,20 @@ class ProjectsController extends Controller
 
     public function store(Request $request)
     {
+        $request->merge(['user_id' => Auth::user()->id]);
         $attributes = $request->validate([
+            'user_id' => ['required'],
             'url' => ['nullable'],
             'title' => ['required'],
             'company' => ['nullable'],
             'description' => ['required'],
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'skills_used' => ['required'],
-            'is_personal_project' => ['boolean'],
+            'is_personal_project' => ['string'],
         ]);
+
+        $attributes['is_personal_project'] = array_key_exists('is_personal_project', $attributes);
+
 
         $imagePath = null;
 

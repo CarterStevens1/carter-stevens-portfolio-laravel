@@ -12,8 +12,8 @@ Route::get('/', function () {
     // Get all experiences
     $experiences = Experience::latest()->get();
     // Check if personal project get all if true 
-    $personalProjects = Projects::where('is_personal_project', true)->get();
-    $notPersonalProjects = Projects::where('is_personal_project', false)->get();
+    $personalProjects = Projects::where('is_personal_project', '1')->get();
+    $notPersonalProjects = Projects::where('is_personal_project', '0')->get();
 
     return view('carterStevens', compact(['experiences', 'notPersonalProjects', 'personalProjects']));
 })->name('home');
@@ -28,9 +28,10 @@ Route::post('edit', [RegisteredUserController::class, 'update'])->middleware('au
 Route::post('destroy', [RegisteredUserController::class, 'destroy'])->middleware('auth')->name('destroy');
 
 
-Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
 Route::middleware('auth')->group(function () {
+    Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
+
     Route::get('dashboard', [RegisteredUserController::class, 'index'])->name('dashboard');
 
     Route::get('add-experience', [ExperienceController::class, 'create'])->name('experience.create');

@@ -15,11 +15,7 @@
                     value="{{ old('image') }}"
                 />
                 <x-forms.input name="skills_used" label="Skills Used" value="{{ old('skills_used') }}" required />
-                <x-forms.checkbox
-                    name="is_personal_project"
-                    label="Is personal project"
-                    value="{{ old('is_personal_project') }}"
-                />
+                <x-forms.checkbox name="is_personal_project" label="Is personal project" value="1" />
 
                 <x-forms.divider />
 

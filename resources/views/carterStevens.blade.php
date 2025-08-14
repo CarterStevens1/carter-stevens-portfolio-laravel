@@ -4,11 +4,15 @@
     'personalProjects',
 ])
 <x-layout>
-    <div class="mx-auto max-w-screen-xl lg:flex lg:justify-between lg:gap-4">
-        <header class="lg:w-[48%]">
-            <x-hero.mainHero />
+    <div class="mx-auto max-w-screen-xl lg:flex lg:justify-between lg:gap-6">
+        <header class="lg:w-[40%]">
+            <x-hero.mainHero
+                :experiences="$experiences"
+                :notPersonalProjects="$notPersonalProjects"
+                :personalProjects="$personalProjects"
+            />
         </header>
-        <main class="flex flex-col items-center py-12 lg:w-[52%]">
+        <main class="flex flex-col items-center py-12 lg:w-[60%]">
             <x-hero.image />
             <x-global.divider />
             <div>
@@ -43,9 +47,10 @@
                 </x-textBlock.text>
             </div>
             <x-experience :experiences="$experiences" />
-            <x-projects :projects="$personalProjects" />
+            <x-projects anchorTag="projects" title="Projects" :projects="$personalProjects" />
+            <x-projects anchorTag="otherProjects" title="Other Projects" :projects="$notPersonalProjects" />
+
             {{--
-                <x-projects />
                 <x-pastReadings />
             --}}
         </main>

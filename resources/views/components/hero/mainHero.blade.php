@@ -1,3 +1,9 @@
+@props([
+    'experiences',
+    'notPersonalProjects',
+    'personalProjects',
+])
+
 <section class="flex h-full flex-col py-12 transition duration-300 lg:sticky lg:top-0 lg:h-screen lg:justify-between">
     <div>
         <h1
@@ -11,9 +17,17 @@
         <nav class="nav hidden lg:block" aria-label="In-page jump links">
             <ul class="mt-16 w-max">
                 <x-hero.navItem href="#about">About</x-hero.navItem>
-                <x-hero.navItem href="#experience">Experience</x-hero.navItem>
-                <x-hero.navItem href="#projects">Projects</x-hero.navItem>
-                <x-hero.navItem href="#otherProjects">Other Projects</x-hero.navItem>
+                @if ($experiences->isNotEmpty())
+                    <x-hero.navItem href="#experience">Experience</x-hero.navItem>
+                @endif
+
+                @if ($personalProjects->isNotEmpty())
+                    <x-hero.navItem href="#projects">Projects</x-hero.navItem>
+                @endif
+
+                @if ($notPersonalProjects->isNotEmpty())
+                    <x-hero.navItem href="#otherProjects">Other Projects</x-hero.navItem>
+                @endif
             </ul>
         </nav>
     </div>
