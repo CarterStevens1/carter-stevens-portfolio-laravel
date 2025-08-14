@@ -7,7 +7,13 @@
                 <x-forms.input name="title" label="Project Title *" value="{{ old('title') }}" required />
                 <x-forms.input name="company" label="Company" value="{{ old('company') }}" />
                 <x-forms.input name="description" label="Description" value="{{ old('description') }}" required />
-                <x-forms.input name="image" label="Image" value="{{ old('image') }}" />
+                <x-forms.input
+                    accept="image/png, image/jpeg, image/webp"
+                    type="file"
+                    name="image"
+                    label="Image"
+                    value="{{ old('image') }}"
+                />
                 <x-forms.input name="skills_used" label="Skills Used" value="{{ old('skills_used') }}" required />
                 <x-forms.checkbox
                     name="is_personal_project"

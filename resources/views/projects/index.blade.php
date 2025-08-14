@@ -5,7 +5,7 @@
 <x-layout>
     <div class="w-full lg:flex lg:flex-col lg:gap-4">
         <x-dashboardNav pageName="View projects" />
-        <main class="flex items-center py-12">
+        <main class="flex max-w-screen-xl flex-col items-center gap-6 px-12 py-12">
             @foreach ($projects as $project)
                 <x-cards.projectsCard
                     image="{{ $project->image }}"

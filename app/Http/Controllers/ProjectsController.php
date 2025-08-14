@@ -66,31 +66,63 @@ class ProjectsController extends Controller
      */
     public function edit(string $id)
     {
-        $experiences = Projects::findOrFail($id);
+        $project = Projects::findOrFail($id);
         // Return view with success message
-        return view('projects.edit', compact('projects'))->with('success', 'Experience updated successfully.');
+        return view('projects.edit', compact('project'))->with('success', 'Experience updated successfully.');
     }
 
-    // public function update(Request $request, string $id)
-    // {
-    //     $experiences = Experience::findOrFail($id);
-    //     $attributes = $request->validate([
-    //         'website_url' => ['nullable'],
-    //         'job_title' => ['required'],
-    //         'company' => ['nullable'],
-    //         'start_date' => ['nullable'],
-    //         'end_date' => ['nullable'],
-    //         'description' => ['required'],
-    //         'skills_used' => ['required'],
-    //     ]);
-    //     $experiences->update($attributes);
-    //     return redirect()->route('dashboard');
-    // }
+    public function update(Request $request, string $id)
+    {
+        $project = Projects::findOrFail($id);
+        $attributes = $request->validate([
+            'url' => ['nullable'],
+            'title' => ['required'],
+            'company' => ['nullable'],
+            'description' => ['required'],
+            'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'skills_used' => ['required'],
+            'is_personal_project' => ['boolean'],
+        ]);
 
-    // public function destroy(string $id)
-    // {
-    //     $experiences = Experience::findOrFail($id);
-    //     $experiences->delete();
-    //     return redirect()->route('dashboard');
-    // }
+        $project->update($attributes);
+
+        // Handle image upload if a new image is provided
+        if ($request->hasFile('image')) {
+            // Delete old image if it exists
+            if ($project->image_path && file_exists(public_path($project->image_path))) {
+                unlink(public_path($project->image_path));
+            }
+
+            $image = $request->file('image');
+
+            // Create images directory if it doesn't exist
+            $destinationPath = public_path('images');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            // Generate unique filename
+            $imageName = time() . '_' . $image->getClientOriginalName();
+
+            // Move file to public/images directory
+            $image->move($destinationPath, $imageName);
+
+            // Update the image path
+            $project->image_path = 'images/' . $imageName;
+        }
+
+
+        return redirect()->back()->with('success', 'Record updated successfully!');
+    }
+
+    public function destroy(string $id)
+    {
+        $project = Projects::findOrFail($id);
+        // Delete the image file if it exists
+        if ($project->image && file_exists(public_path('images/' . $project->image))) {
+            unlink(public_path('images/' . $project->image));
+        }
+        $project->delete();
+        return redirect()->route('dashboard');
+    }
 }
