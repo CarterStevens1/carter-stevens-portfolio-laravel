@@ -28,14 +28,37 @@ class ProjectsController extends Controller
             'title' => ['required'],
             'company' => ['nullable'],
             'description' => ['required'],
-            'image' => ['nullable'],
+            'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'skills_used' => ['required'],
             'is_personal_project' => ['boolean'],
         ]);
 
+        $imagePath = null;
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+
+            // Create images directory if it doesn't exist
+            $destinationPath = public_path('images');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            // Generate unique filename
+            $imageName = time() . '_' . $image->getClientOriginalName();
+
+            // Move file to public/images directory
+            $image->move($destinationPath, $imageName);
+
+            // Store relative path for database
+            $imagePath = 'images/' . $imageName;
+            // Update image in attributes
+            $attributes['image'] = $imageName;
+        }
         $projects = Projects::create($attributes);
 
-        return redirect()->route('dashboard');
+        return redirect()->back()->with('success', 'Project created successfully.');
     }
 
     /**
