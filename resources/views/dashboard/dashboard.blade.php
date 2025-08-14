@@ -9,7 +9,7 @@
                     <div class="space-y-3">
                         <a
                             href="{{ route('experience.index') }}"
-                            class="block w-full rounded-md bg-teal-600 px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-teal-500"
+                            class="bg-violet block w-full rounded-md px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-violet-400"
                         >
                             View Current Experience
                         </a>
@@ -28,7 +28,7 @@
                     <div class="space-y-3">
                         <a
                             href="{{ route('project.index') }}"
-                            class="block w-full rounded-md bg-teal-600 px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-teal-500"
+                            class="bg-violet block w-full rounded-md px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-violet-400"
                         >
                             View Current projects
                         </a>
