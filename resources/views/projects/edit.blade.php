@@ -47,7 +47,6 @@
                     name="is_personal_project"
                     label="Is personal project"
                     value="{{ $project->is_personal_project }}"
-                    required
                 />
                 <x-forms.divider />
 
