@@ -14,7 +14,9 @@
                 <x-forms.input name="url" label="URL" value="{{ $project->url }}" />
                 <x-forms.input name="title" label="Project Title *" value="{{ $project->title }}" required />
                 <x-forms.input name="company" label="Company" value="{{ $project->company }}" />
-                <x-forms.input name="description" label="Description" value="{{ $project->description }}" required />
+                <x-forms.textArea name="description" label="Description" required>
+                    {{ $project->description }}
+                </x-forms.textArea>
                 <div class="mb-4">
                     <label class="mb-2 block text-sm font-medium text-gray-700">Current Image</label>
                     <div class="rounded-lg border-2 border-dashed border-gray-300 p-4">
@@ -36,6 +38,7 @@
                     </div>
                 </div>
                 <x-forms.input
+                    class="file:bg-violet file:border-violet/10 text-white file:mr-4 file:rounded-xl file:px-4 file:py-2"
                     accept="image/png, image/jpeg, image/webp"
                     type="file"
                     name="image"

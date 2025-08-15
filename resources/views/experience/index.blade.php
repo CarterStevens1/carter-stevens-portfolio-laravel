@@ -9,7 +9,7 @@
             @foreach ($experiences as $experience)
                 <x-cards.experienceCard
                     href="/experience/{{ $experience->id }}/edit"
-                    title="{{ $experience->job_title }} - {{ $experience->company }}"
+                    title="{{ $experience->job_title }}{{$experience->company ? ' - ' . $experience->company : '' }}"
                     tenure="{{ $experience->start_date }} - {{ $experience->end_date }}"
                     description="{{ $experience->description }}"
                     technologies="{{ $experience->skills_used }}"

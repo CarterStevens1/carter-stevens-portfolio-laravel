@@ -84,7 +84,7 @@ class ProjectsController extends Controller
             'title' => ['required'],
             'company' => ['nullable'],
             'description' => ['required'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'skills_used' => ['required'],
             'is_personal_project' => ['boolean'],
         ]);

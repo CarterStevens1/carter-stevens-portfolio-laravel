@@ -8,6 +8,7 @@
                 <x-forms.input name="company" label="Company" value="{{ old('company') }}" />
                 <x-forms.textArea name="description" label="Description" value="{{ old('description') }}" required />
                 <x-forms.input
+                    class="file:bg-violet file:border-violet/10 text-white file:mr-4 file:rounded-xl file:px-4 file:py-2"
                     accept="image/png, image/jpeg, image/webp"
                     type="file"
                     name="image"

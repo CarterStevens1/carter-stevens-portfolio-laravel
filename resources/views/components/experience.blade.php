@@ -12,7 +12,7 @@
             <x-cards.experienceCard
                 href="{{ $experience->website_url }}"
                 target="_blank"
-                title="{{ $experience->job_title }} - {{ $experience->company }}"
+                title="{{ $experience->job_title }}{{$experience->company ? ' - ' . $experience->company : '' }}"
                 tenure="{{ $experience->start_date }} - {{ $experience->end_date }}"
                 description="{{ $experience->description }}"
                 technologies="{{ $experience->skills_used }}"

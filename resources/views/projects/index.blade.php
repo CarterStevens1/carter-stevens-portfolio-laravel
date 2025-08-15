@@ -10,7 +10,7 @@
                 <x-cards.projectsCard
                     image="{{ $project->image }}"
                     href="/project/{{ $project->id }}/edit"
-                    title="{{ $project->title }} - {{ $project->company }}"
+                    title="{{ $project->title }}{{$project->company ? ' - ' . $project->company : '' }}"
                     description="{{ $project->description }}"
                     technologies="{{ $project->skills_used }}"
                 />
