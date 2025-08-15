@@ -11,7 +11,7 @@
                 action="/experience/{{ $experiences->id }}/edit"
                 enctype="multipart/form-data"
             >
-                <x-forms.input name="job_title" label="Job Title *" value="{{ $experiences->website_url }}" required />
+                <x-forms.input name="website_url" label="Website URL" value="{{ $experiences->website_url }}" />
                 <x-forms.input name="job_title" label="Job Title *" value="{{ $experiences->job_title }}" required />
                 <x-forms.input name="company" label="Company" value="{{ $experiences->company }}" />
                 <x-forms.input name="start_date" label="Start Date" value="{{ $experiences->start_date }}" />

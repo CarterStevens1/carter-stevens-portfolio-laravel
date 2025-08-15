@@ -1,9 +1,9 @@
 @props([
-    'href' => '',
+    'href',
     'target' => '_self',
 ])
 
-@if ($href !== '' || $href !== '#')
+@if ($href && $href !== '')
 <a href="{{ $href }}" target="{{ $target }}" class="block" >
 @endif
     <div aria-label="Card"
@@ -11,6 +11,6 @@
     >
         {{ $slot }}
     </div>
-@if ($href !== '' || $href !== '#')
+@if ($href)
 </a>    
 @endif

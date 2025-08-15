@@ -13,7 +13,7 @@
         @foreach ($projects as $project)
             <x-cards.projectsCard
                 image="{{ $project->image }}"
-                href="{{ $project->url ?? '#' }}"
+                href="{{ $project->url }}"
                 title="{{ $project->title }}{{$project->company ? ' - ' . $project->company : '' }}"
                 description="{{ $project->description }}"
                 technologies="{{ $project->skills_used }}"

@@ -1,5 +1,5 @@
 @props([
-    'href' => '',
+    'href',
     'target' => '_self',
     'image',
     'title',
@@ -8,7 +8,8 @@
     'technologies' => '',
 ])
 
-<x-cards.cardWrapper href="{{ $href }}" target="{{ $target }} }}">
+
+<x-cards.cardWrapper href="{{ $href }}" target="{{ $target }}">
         <div class="flex sm:flex-row flex-col gap-6">
       <div class="sm:w-2/6 max-w-96 max-sm:order-2">
         <img src="{{ asset('images/' . $image) }}" alt="Placeholder image" class="max-h-[200px] object-contain rounded transition sm:translate-y-1"/>      
