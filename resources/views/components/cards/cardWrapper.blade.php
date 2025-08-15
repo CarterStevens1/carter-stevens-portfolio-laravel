@@ -1,10 +1,6 @@
 @props([
-    'href' => '/',
+    'href' => '#',
     'target' => '_self',
-    'title',
-    'tenure',
-    'description',
-    'technologies' => '',
 ])
 
 <a href="{{ $href }}" target="{{ $target }}" class="block" aria-label="Experience card">

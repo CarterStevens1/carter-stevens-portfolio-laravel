@@ -14,5 +14,5 @@
 @endphp
 
 <x-forms.field :$label :$name>
-    <textarea {{ $attributes($defaults) }}> {{ $slot }}</textarea>
+    <textarea {{ $attributes($defaults) }}>{{ $slot }}</textarea>
 </x-forms.field>

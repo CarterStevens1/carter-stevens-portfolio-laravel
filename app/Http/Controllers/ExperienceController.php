@@ -11,7 +11,7 @@ class ExperienceController extends Controller
     //
     public function index()
     {
-        $experiences = Experience::latest()->get();
+        $experiences = Experience::orderBy('start-date', 'desc')->get();
 
         return view('experience.index', compact(['experiences']));
     }
@@ -37,7 +37,7 @@ class ExperienceController extends Controller
 
         $experience = Experience::create($attributes);
 
-        return redirect()->route('dashboard');
+        return redirect()->back()->with('success', 'Experience created successfully.');
     }
 
     /**

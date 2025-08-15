@@ -6,7 +6,7 @@
                 <x-forms.input name="url" label="URL" value="{{ old('url') }}" />
                 <x-forms.input name="title" label="Project Title *" value="{{ old('title') }}" required />
                 <x-forms.input name="company" label="Company" value="{{ old('company') }}" />
-                <x-forms.input name="description" label="Description" value="{{ old('description') }}" required />
+                <x-forms.textArea name="description" label="Description" value="{{ old('description') }}" required />
                 <x-forms.input
                     accept="image/png, image/jpeg, image/webp"
                     type="file"

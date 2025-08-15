@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // Get all experiences
-    $experiences = Experience::latest()->get();
+    $experiences = Experience::orderBy('start-date', 'desc')->get();
     // Check if personal project get all if true 
     $personalProjects = Projects::where('is_personal_project', '1')->get();
     $notPersonalProjects = Projects::where('is_personal_project', '0')->get();

@@ -31,4 +31,8 @@ class Experience extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    protected $casts = [
+        'start-date' => 'integer',
+    ];
 }
