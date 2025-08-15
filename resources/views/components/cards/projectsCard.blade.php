@@ -1,5 +1,5 @@
 @props([
-    'href' => '#',
+    'href' => '',
     'target' => '_self',
     'image',
     'title',
