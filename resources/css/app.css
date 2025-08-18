@@ -6,3 +6,14 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+
+/* Spotlight cursor classes */
+.cursor-spotlight,
+.cursor-spotlight::before {
+    background: radial-gradient(
+        1000px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(91, 83, 213, 0.149),
+        transparent 40%
+    );
+    transition: background 0.1s ease;
+}

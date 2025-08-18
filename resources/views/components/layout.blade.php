@@ -26,7 +26,13 @@
         @endif
     </head>
 
-    <body class="bg-darkPurple {{ $class ?? '' }} flex min-h-screen overflow-x-hidden px-6 text-slate-400 lg:px-8">
+    <body
+        class="bg-darkPurple {{ $class ?? '' }} relative flex min-h-screen overflow-x-hidden px-6 text-slate-400 lg:px-8"
+    >
+        <div
+            id="spotlight-container"
+            class="cursor-spotlight before:pointer-events-none before:fixed before:inset-0 before:content-[''] max-md:hidden"
+        ></div>
         {{ $slot }}
     </body>
 </html>
