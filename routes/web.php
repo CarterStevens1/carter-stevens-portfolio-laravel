@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PastReadingsController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Models\Experience;
@@ -47,6 +48,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/project/{project}/edit', [ProjectsController::class, 'edit'])->name('project.edit');
     Route::post('/project/{project}/edit', [ProjectsController::class, 'update'])->name('project.update');
     Route::post('/project/{project}/delete', [ProjectsController::class, 'destroy'])->name('project.destroy');
+
+    Route::get('add-reading', [PastReadingsController::class, 'create'])->name('pastReading.create');
+    Route::post('add-reading', [PastReadingsController::class, 'store'])->name('pastReading.create');
+    Route::get('view-reading', [PastReadingsController::class, 'index'])->name('pastReading.index');
+    Route::get('/reading/{reading}/edit', [PastReadingsController::class, 'edit'])->name('pastReading.edit');
+    Route::post('/reading/{reading}/edit', [PastReadingsController::class, 'update'])->name('pastReading.update');
+    Route::post('/reading/{reading}/delete', [PastReadingsController::class, 'destroy'])->name('pastReading.destroy');
 });
 
 Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
