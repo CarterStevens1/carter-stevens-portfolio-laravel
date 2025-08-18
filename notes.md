@@ -12,3 +12,18 @@ TODOS:
 - Create a page for the admin to view all the experiences and readings
     - List of experiences dynamically on the main page
     - List of readings dynamically on the main page
+ 
+
+- Create a past readings block
+- Migration to include
+    - Date of article
+    - Date read
+    - Image
+    - Title
+    - Desc
+    - URL
+
+
+- Create a Hobbies Page
+- To include
+- Games, Books, Music
