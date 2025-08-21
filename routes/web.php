@@ -15,6 +15,7 @@ Route::get('/', function () {
     // Check if personal project get all if true 
     $personalProjects = Projects::where('is_personal_project', '1')->get();
     $notPersonalProjects = Projects::where('is_personal_project', '0')->get();
+    $pastReadings = Projects::orderBy('read_date', 'desc')->get();
 
     return view('carterStevens', compact(['experiences', 'notPersonalProjects', 'personalProjects']));
 })->name('home');

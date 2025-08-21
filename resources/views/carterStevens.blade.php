@@ -1,7 +1,8 @@
 @props([
-    'experiences',
-    'notPersonalProjects',
-    'personalProjects',
+    'experiences' => '',
+    'notPersonalProjects' => '',
+    'personalProjects' => '',
+    'pastReadings' => '',
 ])
 <x-layout>
     <div class="mx-auto max-w-screen-xl lg:flex lg:justify-between lg:gap-6">
@@ -10,6 +11,7 @@
                 :experiences="$experiences"
                 :notPersonalProjects="$notPersonalProjects"
                 :personalProjects="$personalProjects"
+                :pastReadings="$pastReadings"
             />
         </header>
         <main class="flex flex-col items-center py-12 lg:w-[60%]">

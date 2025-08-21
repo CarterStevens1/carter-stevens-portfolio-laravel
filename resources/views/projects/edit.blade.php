@@ -46,11 +46,14 @@
                     value="{{ old('image') }}"
                 />
                 <x-forms.input name="skills_used" label="Skills Used" value="{{ $project->skills_used }}" required />
-                <x-forms.checkbox
+                <x-forms.select
                     name="is_personal_project"
                     label="Is personal project"
                     value="{{ $project->is_personal_project }}"
-                />
+                >
+                    <option value="0" @if ($project->is_personal_project == 0) selected @endif>No</option>
+                    <option value="1" @if ($project->is_personal_project == 1) selected @endif>Yes</option>
+                </x-forms.select>
                 <x-forms.divider />
 
                 @if (session('success'))

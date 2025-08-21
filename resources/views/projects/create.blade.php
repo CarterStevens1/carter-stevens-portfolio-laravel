@@ -16,8 +16,10 @@
                     value="{{ old('image') }}"
                 />
                 <x-forms.input name="skills_used" label="Skills Used" value="{{ old('skills_used') }}" required />
-                <x-forms.checkbox name="is_personal_project" label="Is personal project" value="1" />
-
+                <x-forms.select name="is_personal_project" label="Is personal project">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </x-forms.select>
                 <x-forms.divider />
 
                 <x-forms.button>Add project</x-forms.button>
