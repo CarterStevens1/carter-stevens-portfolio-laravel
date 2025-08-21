@@ -8,7 +8,7 @@
             <x-forms.form
                 id="update"
                 method="POST"
-                action="/readings/{{ $readings->id }}/edit"
+                action="/reading/{{ $readings->id }}/edit"
                 enctype="multipart/form-data"
             >
                 <x-forms.input name="blog_url" label="Blog URL" value="{{ $readings->blog_url }}" />
@@ -19,10 +19,10 @@
                 <div class="mb-4">
                     <label class="mb-2 block text-sm font-medium text-gray-700">Current Image</label>
                     <div class="rounded-lg border-2 border-dashed border-gray-300 p-4">
-                        @if ($readings->image && asset('images/' . $readings->image))
+                        @if ($readings->blog_image && asset('images/' . $readings->blog_image))
                             <div class="relative">
                                 <img
-                                    src="{{ asset('images/' . $readings->image) }}"
+                                    src="{{ asset('images/' . $readings->blog_image) }}"
                                     alt="Current image"
                                     class="mx-auto h-48 max-w-full rounded object-contain"
                                     id="currentImage"
@@ -44,8 +44,20 @@
                     label=" {{ $readings->blog_image ? 'Replace Image (Optional)' : 'Upload Image' }}"
                     value="{{ old('blog_image') }}"
                 />
-                <x-forms.input name="blog_date" label="Blog Created Date" value="{{ $readings->blog_date }}" required />
-                <x-forms.input name="read_date" label="Read Date" value="{{ $readings->read_date }}" required />
+                <x-forms.input
+                    type="date"
+                    name="blog_date"
+                    label="Blog Created Date"
+                    value="{{ $readings->blog_date }}"
+                    required
+                />
+                <x-forms.input
+                    type="date"
+                    name="read_date"
+                    label="Read Date"
+                    value="{{ $readings->read_date }}"
+                    required
+                />
                 <x-forms.divider />
 
                 @if (session('success'))

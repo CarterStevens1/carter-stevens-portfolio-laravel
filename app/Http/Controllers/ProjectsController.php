@@ -73,7 +73,7 @@ class ProjectsController extends Controller
     {
         $project = Projects::findOrFail($id);
         // Return view with success message
-        return view('projects.edit', compact('project'))->with('success', 'Experience updated successfully.');
+        return view('projects.edit', compact('project'))->with('success', 'Project updated successfully.');
     }
 
     public function update(Request $request, string $id)

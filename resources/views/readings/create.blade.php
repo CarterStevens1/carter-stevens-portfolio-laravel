@@ -1,6 +1,6 @@
 <x-layout>
     <div class="w-full lg:flex lg:flex-col lg:gap-4">
-        <x-dashboardNav pageName="Create new project" />
+        <x-dashboardNav pageName="Create new past reading" />
         <main class="py-12">
             <x-forms.form method="POST" action="/add-reading" enctype="multipart/form-data">
                 <x-forms.input name="blog_url" label="URL" value="{{ old('blog_url') }}" />
@@ -19,8 +19,8 @@
                     label="Blog Image"
                     value="{{ old('blog_image') }}"
                 />
-                <x-forms.input name="blog_date" label="Blog Created Date" value="{{ old('date') }}" required />
-                <x-forms.input name="read_date" label="Read Date" value="{{ old('read_date') }}" required />
+                <x-forms.input type="date" name="blog_date" label="Blog Created Date" value="{{ old('date') }}" required />
+                <x-forms.input type="date" name="read_date" label="Read Date" value="{{ old('read_date') }}" required />
 
                 <x-forms.divider />
 
