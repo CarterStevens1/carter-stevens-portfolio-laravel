@@ -21,13 +21,18 @@
           <p class="mt-2 text-sm leading-normal">
               {{ html_entity_decode($description, ENT_QUOTES, 'UTF-8') }}
           </p>
-          <ul class="mt-6 flex flex-wrap" aria-label="Technologies used">
+           <div class="flex justify-between gap-4 items-center mt-6">
+          <ul class="flex flex-wrap" aria-label="Technologies used">
               @foreach (explode(',', $technologies) as $technology)
                   <li class="mt-2 mr-1.5">
                       <x-global.pill>{{ html_entity_decode($technology, ENT_QUOTES, 'UTF-8') }}</x-pill>
                   </li>
               @endforeach
           </ul>
+          @if ($href)
+             <x-svgs.external />
+        @endif
+           </div>
       </div>
     </div>
 </x-cards.cardWrapper>
