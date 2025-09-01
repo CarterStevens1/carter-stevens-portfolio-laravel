@@ -70,7 +70,7 @@
                 <x-forms.button form="update">Save</x-forms.button>
 
                 {{-- Get confirmation to deleten before deleting --}}
-                <form id="delete" method="POST" action="/project/{{ $readings->id }}/delete">
+                <form id="delete" method="POST" action="/reading/{{ $readings->id }}/delete">
                     @csrf
                     @method('POST')
                     <button

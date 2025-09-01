@@ -14,20 +14,21 @@
             <img
                 src="{{ asset('images/' . $image) }}"
                 alt="Placeholder image"
-                class="max-h-[200px] rounded object-contain transition sm:translate-y-1"
+                class="max-h-[150px] w-full rounded object-contain transition sm:translate-y-1"
             />
         </div>
         <div class="flex flex-col space-y-6 max-sm:order-1 sm:w-4/6 lg:space-y-4">
-            <div class="flex flex-col-reverse justify-between lg:flex-row">
+            <div class="flex flex-col">
                 <h3 class="group-hover:text-violet text-white group-hover:font-bold">{{ $title }}</h3>
+                <p class="mt-2 text-sm leading-normal">
+                    {{ html_entity_decode($description, ENT_QUOTES, 'UTF-8') }}
+                </p>
             </div>
-            <p class="mt-2 text-sm leading-normal">
-                {{ html_entity_decode($description, ENT_QUOTES, 'UTF-8') }}
-            </p>
             <div class="mt-auto flex justify-between gap-4">
-                {{-- CHANGE TO ICONS --}}
                 <span>Read on: {{ date('d M Y', strtotime($readDate)) }}</span>
-                <span>Published on: {{ date('d M Y', strtotime($date)) }}</span>
+                @if ($href)
+                    <x-svgs.external />
+                @endif
             </div>
         </div>
     </div>
