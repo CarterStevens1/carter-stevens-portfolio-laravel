@@ -47,14 +47,17 @@
                 <x-textBlock.text>
                     In my spare time, you can usually find me, reading, Walking the dog, or playing video games.
                 </x-textBlock.text>
+
+                <x-global.link class="mt-6 inline-flex gap-4" href="/hobbies">
+                    What i do in my spare time
+                    <x-svgs.arrowRight />
+                </x-global.link>
             </div>
             <x-experience :experiences="$experiences" />
             <x-projects anchorTag="projects" title="Projects" :projects="$personalProjects" />
             <x-projects anchorTag="otherProjects" title="Other Projects" :projects="$notPersonalProjects" />
 
-            {{--
-                <x-pastReadings />
-            --}}
+            <x-pastReadings anchorTag="pastReadings" title="Past Readings" :readings="$pastReadings" />
         </main>
     </div>
 </x-layout>

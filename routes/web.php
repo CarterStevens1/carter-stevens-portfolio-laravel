@@ -6,6 +6,7 @@ use App\Http\Controllers\PastReadingsController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Models\Experience;
+use App\Models\PastReadings;
 use App\Models\Projects;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,21 @@ Route::get('/', function () {
     // Check if personal project get all if true 
     $personalProjects = Projects::where('is_personal_project', '1')->get();
     $notPersonalProjects = Projects::where('is_personal_project', '0')->get();
-    $pastReadings = Projects::orderBy('read_date', 'desc')->get();
+    $pastReadings = PastReadings::orderBy('read_date', 'desc')->get();
 
-    return view('carterStevens', compact(['experiences', 'notPersonalProjects', 'personalProjects']));
+    return view('carterStevens', compact(['experiences', 'notPersonalProjects', 'personalProjects', 'pastReadings']));
 })->name('home');
+
+Route::get('/hobbies', function () {
+    // Get all experiences
+    $experiences = Experience::orderByRaw('end_date = "present" DESC')->orderBy('start_date', 'desc')->get();
+    // Check if personal project get all if true 
+    $personalProjects = Projects::where('is_personal_project', '1')->get();
+    $notPersonalProjects = Projects::where('is_personal_project', '0')->get();
+    $pastReadings = PastReadings::orderBy('read_date', 'desc')->get();
+
+    return view('hobbies', compact(['experiences', 'notPersonalProjects', 'personalProjects', 'pastReadings']));
+})->name('hobbies');
 
 Route::middleware('guest')->group(function () {
     Route::get('adminPanel', [LoginController::class, 'create'])->name('login');
