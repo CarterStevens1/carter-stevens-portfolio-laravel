@@ -22,9 +22,15 @@ class GamesController extends Controller
 
     return Cache::remember($cacheKey, 3600, function () use ($gameIds) {
       return Game::whereIn('id', $gameIds)
-        ->with(['cover']) // eager load cover
+        ->with(['cover'])
         ->limit(count($gameIds))
-        ->get(['id', 'name', 'cover']); // only fetch fields you need
+        ->get(['id', 'name', 'cover'])->map(function ($game) {
+          return [
+            'id'    => $game->id,
+            'name'  => $game->name,
+            'cover' => $game->cover,
+          ];
+        });
     });
   }
 
@@ -44,7 +50,13 @@ class GamesController extends Controller
     )
       ->where('parent_game', null) // exclude DLCs/expansions/remasters
       ->take(50)
-      ->get(['id', 'name']); // limit fields
+      ->get(['id', 'name', 'cover'])->map(function ($game) {
+        return [
+          'id'    => $game->id,
+          'name'  => $game->name,
+          'cover' => $game->cover,
+        ];
+      });
 
     return response()->json($games);
   }
