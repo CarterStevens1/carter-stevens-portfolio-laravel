@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\GamesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PastReadingsController;
 use App\Http\Controllers\ProjectsController;
@@ -21,16 +22,18 @@ Route::get('/', function () {
     return view('carterStevens', compact(['experiences', 'notPersonalProjects', 'personalProjects', 'pastReadings']));
 })->name('home');
 
-Route::get('/hobbies', function () {
-    // Get all experiences
-    $experiences = Experience::orderByRaw('end_date = "present" DESC')->orderBy('start_date', 'desc')->get();
-    // Check if personal project get all if true 
-    $personalProjects = Projects::where('is_personal_project', '1')->get();
-    $notPersonalProjects = Projects::where('is_personal_project', '0')->get();
-    $pastReadings = PastReadings::orderBy('read_date', 'desc')->get();
+Route::get('/hobbies', [GamesController::class, 'index'])->name('hobbies');
 
-    return view('hobbies', compact(['experiences', 'notPersonalProjects', 'personalProjects', 'pastReadings']));
-})->name('hobbies');
+// Route::get('/hobbies', function () {
+//     // Get all experiences
+//     $experiences = Experience::orderByRaw('end_date = "present" DESC')->orderBy('start_date', 'desc')->get();
+//     // Check if personal project get all if true 
+//     $personalProjects = Projects::where('is_personal_project', '1')->get();
+//     $notPersonalProjects = Projects::where('is_personal_project', '0')->get();
+//     $pastReadings = PastReadings::orderBy('read_date', 'desc')->get();
+
+//     return view('hobbies', compact(['experiences', 'notPersonalProjects', 'personalProjects', 'pastReadings']));
+// })->name('hobbies');
 
 Route::middleware('guest')->group(function () {
     Route::get('adminPanel', [LoginController::class, 'create'])->name('login');
@@ -68,6 +71,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/reading/{reading}/edit', [PastReadingsController::class, 'edit'])->name('pastReading.edit');
     Route::post('/reading/{reading}/edit', [PastReadingsController::class, 'update'])->name('pastReading.update');
     Route::post('/reading/{reading}/delete', [PastReadingsController::class, 'destroy'])->name('pastReading.destroy');
+
+    Route::get('/games/search-ids', [GamesController::class, 'searchGameIds'])->name('games.search-ids');
 });
 
 Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
