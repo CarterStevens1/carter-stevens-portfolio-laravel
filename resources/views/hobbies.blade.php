@@ -11,8 +11,8 @@
             <x-hero.mainHero />
         </header>
         <main class="flex flex-col items-center py-12 lg:w-[60%]">
-            <section id="played-games relative w-full">
-                <h2>Played Games</h2>
+            <section id="played-games" class="relative w-full">
+                <h2>Top Games</h2>
 
                 @if (count($games) > 0)
                     <div class="mt-8 grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
@@ -30,6 +30,11 @@
                         <p class="mt-2 text-sm text-gray-500">Check your configuration or try refreshing the cache.</p>
                     </div>
                 @endif
+
+                <x-global.link href="https://bckl.gg/ogWO" class="mt-8 inline-flex gap-4">
+                    View all games on backloggd
+                    <x-svgs.arrowRight />
+                </x-global.link>
             </section>
         </main>
     </div>
