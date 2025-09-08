@@ -48,29 +48,35 @@ Route::post('destroy', [RegisteredUserController::class, 'destroy'])->middleware
 Route::middleware('auth')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
-
     Route::get('dashboard', [RegisteredUserController::class, 'index'])->name('dashboard');
 
-    Route::get('add-experience', [ExperienceController::class, 'create'])->name('experience.create');
-    Route::post('add-experience', [ExperienceController::class, 'store'])->name('experience.create');
-    Route::get('view-experience', [ExperienceController::class, 'index'])->name('experience.index');
-    Route::get('/experience/{experience}/edit', [ExperienceController::class, 'edit'])->name('experience.edit');
-    Route::post('/experience/{experience}/edit', [ExperienceController::class, 'update'])->name('experience.update');
-    Route::post('/experience/{experience}/delete', [ExperienceController::class, 'destroy'])->name('experience.destroy');
 
-    Route::get('add-project', [ProjectsController::class, 'create'])->name('project.create');
-    Route::post('add-project', [ProjectsController::class, 'store'])->name('project.create');
-    Route::get('view-project', [ProjectsController::class, 'index'])->name('project.index');
-    Route::get('/project/{project}/edit', [ProjectsController::class, 'edit'])->name('project.edit');
-    Route::post('/project/{project}/edit', [ProjectsController::class, 'update'])->name('project.update');
-    Route::post('/project/{project}/delete', [ProjectsController::class, 'destroy'])->name('project.destroy');
+    Route::controller(ExperienceController::class)->group(function () {
+        Route::get('add-experience', 'create')->name('experience.create');
+        Route::post('add-experience', 'store')->name('experience.create');
+        Route::get('view-experience', 'index')->name('experience.index');
+        Route::get('/experience/{experience}/edit', 'edit')->name('experience.edit');
+        Route::post('/experience/{experience}/edit', 'update')->name('experience.update');
+        Route::post('/experience/{experience}/delete', 'destroy')->name('experience.destroy');
+    });
 
-    Route::get('add-reading', [PastReadingsController::class, 'create'])->name('pastReading.create');
-    Route::post('add-reading', [PastReadingsController::class, 'store'])->name('pastReading.create');
-    Route::get('view-reading', [PastReadingsController::class, 'index'])->name('pastReading.index');
-    Route::get('/reading/{reading}/edit', [PastReadingsController::class, 'edit'])->name('pastReading.edit');
-    Route::post('/reading/{reading}/edit', [PastReadingsController::class, 'update'])->name('pastReading.update');
-    Route::post('/reading/{reading}/delete', [PastReadingsController::class, 'destroy'])->name('pastReading.destroy');
+    Route::controller(ProjectsController::class)->group(function () {
+        Route::get('add-project', 'create')->name('project.create');
+        Route::post('add-project', 'store')->name('project.create');
+        Route::get('view-project', 'index')->name('project.index');
+        Route::get('/project/{project}/edit', 'edit')->name('project.edit');
+        Route::post('/project/{project}/edit', 'update')->name('project.update');
+        Route::post('/project/{project}/delete', 'destroy')->name('project.destroy');
+    });
+
+    Route::controller(PastReadingsController::class)->group(function () {
+        Route::get('add-reading', 'create')->name('pastReading.create');
+        Route::post('add-reading', 'store')->name('pastReading.create');
+        Route::get('view-reading', 'index')->name('pastReading.index');
+        Route::get('/reading/{reading}/edit', 'edit')->name('pastReading.edit');
+        Route::post('/reading/{reading}/edit', 'update')->name('pastReading.update');
+        Route::post('/reading/{reading}/delete', 'destroy')->name('pastReading.destroy');
+    });
 
     Route::get('/games/search-ids', [GamesController::class, 'searchGameIds'])->name('games.search-ids');
 });
