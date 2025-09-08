@@ -2,20 +2,20 @@
     <ul class="mt-16 w-max">
         <x-hero.navItem href="#about">About</x-hero.navItem>
 
-        @if ($experiences)
+        @isset($experiences)
             <x-hero.navItem href="#experience">Experience</x-hero.navItem>
-        @endif
+        @endisset
 
-        @if ($personalProjects)
+        @isset($personalProjects)
             <x-hero.navItem href="#projects">Projects</x-hero.navItem>
-        @endif
+        @endisset
 
-        @if ($notPersonalProjects)
+        @isset($notPersonalProjects)
             <x-hero.navItem href="#otherProjects">Other Projects</x-hero.navItem>
-        @endif
+        @endisset
 
-        @if ($pastReadings)
+        @isset($pastReadings)
             <x-hero.navItem href="#pastReadings">Articles I've Read</x-hero.navItem>
-        @endif
+        @endisset
     </ul>
 </nav>

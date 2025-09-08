@@ -1,8 +1,8 @@
 @props([
-    'experiences',
-    'notPersonalProjects',
-    'personalProjects',
-    'pastReadings',
+    'experiences' => null,
+    'notPersonalProjects' => null,
+    'personalProjects' => null,
+    'pastReadings' => null,
 ])
 
 <section class="flex h-full flex-col py-12 transition duration-300 lg:sticky lg:top-0 lg:h-screen lg:justify-between">
@@ -16,10 +16,10 @@
         <p class="mt-4 max-w-xs">I build accessible and unique experiences, making the web a little better everyday!</p>
 
         <x-hero.navigation
-            :experiences?="$experiences"
-            :notPersonalProjects?="$notPersonalProjects"
-            :personalProjects?="$personalProjects"
-            :pastReadings?="$pastReadings"
+            :experiences="$experiences"
+            :notPersonalProjects="$notPersonalProjects"
+            :personalProjects="$personalProjects"
+            :pastReadings="$pastReadings"
         />
     </div>
 
