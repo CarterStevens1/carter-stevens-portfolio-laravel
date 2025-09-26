@@ -18,6 +18,7 @@
             <x-hobbies.about />
             <x-hobbies.games :games="$games" />
             <x-hobbies.movies :movies="$movies" />
+            <x-hobbies.dogPhotos />
         </main>
     </div>
 </x-layout>
