@@ -17,5 +17,11 @@
         @isset($pastReadings)
             <x-hero.navItem href="#pastReadings">Articles I've Read</x-hero.navItem>
         @endisset
+
+        @if (Route::currentRouteName() === 'hobbies')
+            <x-hero.navItem href="#topGames">Games</x-hero.navItem>
+            <x-hero.navItem href="#horrorMovies">Horror Movies</x-hero.navItem>
+            <x-hero.navItem href="#dogPhotos">Dog Photos</x-hero.navItem>
+        @endif
     </ul>
 </nav>
